@@ -2,7 +2,6 @@
 一个轮播图 小插件
 
 // 调用================================================
-
 window.onload = function(){
 	var slide1 = new Slide({
 		id : 'slide1',//最外层div id
