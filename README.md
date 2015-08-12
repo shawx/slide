@@ -1,6 +1,6 @@
 # slide
 一个轮播图 小插件
-
+```javacript
 // 调用================================================
 window.onload = function(){
 	var slide1 = new Slide({
@@ -17,3 +17,4 @@ window.onload = function(){
 		btnRight : 't_next'//下一页id
 	});
 };
+```
