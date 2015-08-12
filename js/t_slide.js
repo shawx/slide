@@ -90,7 +90,7 @@ Slide.prototype = {
 			});
 			this.aEvent(that.obj,that.actOut,function(){
 				that.timer = setInterval(function(){
-					that.thisInterval();
+					that.theInterval(-1);
 				},that.speed);
 			});
 		}
@@ -198,7 +198,7 @@ Slide.prototype = {
 		}
 		if(new RegExp("Windows").exec(navigator.userAgent) != 'Windows'){
 			this.timer = setInterval(function(){
-				that.thisInterval();
+				that.theInterval(-1);
 			},that.speed);
 		}
 		
