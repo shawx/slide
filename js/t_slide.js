@@ -30,7 +30,7 @@ var Slide = function(e){
 	btnRight : null;
 
 	this.play = false;
-	this.speed = 0;
+	this.speed = null;
 	this.timer = null;
 	this.cur = null;
 	this.idCur = null;
@@ -84,7 +84,7 @@ Slide.prototype = {
 		this.aEvent(that.objChild,that.actEnd,function(e){
 			that.end(e);
 		});
-		if(new RegExp("Windows").exec(navigator.userAgent)){
+		if(new RegExp("Windows").exec(navigator.userAgent) && this.play){
 			this.aEvent(that.obj,that.actIn,function(){
 				clearInterval(that.timer);
 			});
@@ -97,7 +97,7 @@ Slide.prototype = {
 		this.aEvent(that.btnLeft,'click',function(){
 			clearInterval(that.timer);
 			that.theInterval(1);
-			if(new RegExp("Windows").exec(navigator.userAgent) != 'Windows'){
+			if(new RegExp("Windows").exec(navigator.userAgent) != 'Windows' && that.play){
 				that.timer = setInterval(function(){
 					that.theInterval(-1);
 				},that.speed);
@@ -106,7 +106,7 @@ Slide.prototype = {
 		this.aEvent(that.btnRight,'click',function(){
 			clearInterval(that.timer);
 			that.theInterval(-1);
-			if(new RegExp("Windows").exec(navigator.userAgent) != 'Windows'){
+			if(new RegExp("Windows").exec(navigator.userAgent) != 'Windows' && that.play){
 				that.timer = setInterval(function(){
 					that.theInterval(-1);
 				},that.speed);
@@ -196,7 +196,7 @@ Slide.prototype = {
 		}else{
 			this.animateFuc(that.moving,0.3);
 		}
-		if(new RegExp("Windows").exec(navigator.userAgent) != 'Windows'){
+		if(new RegExp("Windows").exec(navigator.userAgent) != 'Windows' && this.play){
 			this.timer = setInterval(function(){
 				that.theInterval(-1);
 			},that.speed);
